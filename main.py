@@ -1,18 +1,17 @@
 #bookbot
+from stats import get_num_words
+
 
 def get_book_text():
     with open("/home/bmax/workspace/github.com/bootdotdev/curriculum/bookbot/books/frankenstein.txt") as f:
         file_contents = f.read()
     return file_contents
 
-def word_count():
-    words = get_book_text()
-    count= len(words.split())
-    print (f"{count} words found in the document")
 
 def main():
-    word_count()
-    
+    file_contents = get_book_text()
+    new_count =get_num_words(file_contents)
+    print (f"{new_count} words found in the document")
 
 
 main()
