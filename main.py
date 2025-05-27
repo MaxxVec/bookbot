@@ -1,5 +1,5 @@
 #bookbot
-from stats import get_num_words
+from stats import get_num_words, character_number
 
 
 def get_book_text():
@@ -10,8 +10,10 @@ def get_book_text():
 
 def main():
     file_contents = get_book_text()
-    new_count =get_num_words(file_contents)
+    new_count = get_num_words(file_contents)
+    chars_dict = character_number(file_contents)
     print (f"{new_count} words found in the document")
+    print (chars_dict)
 
 
 main()
