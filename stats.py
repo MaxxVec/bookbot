@@ -1,21 +1,26 @@
-#This counts words
+def get_num_words(text):
+    words = text.split()
+    return len(words)
 
 
-
-def get_num_words(file_contents):
-    count= len(file_contents.split())
-    return count
-
-def character_number(file_contents):
+def get_chars_dict(text):
     chars = {}
-    lower = file_contents.lower()
-    
-    for c in lower:
-        if c in chars:
-            chars[c] += 1
+    for c in text:
+        lowered = c.lower()
+        if lowered in chars:
+            chars[lowered] += 1
         else:
-            chars[c] = 1
+            chars[lowered] = 1
     return chars
-        
 
-    
+
+def sort_on(d):
+    return d["num"]
+
+
+def chars_dict_to_sorted_list(num_chars_dict):
+    sorted_list = []
+    for ch in num_chars_dict:
+        sorted_list.append({"char": ch, "num": num_chars_dict[ch]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
